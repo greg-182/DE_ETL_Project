@@ -31,6 +31,10 @@ We follow a modular approach. Each directory contains its own `README.md` with s
 2. **Start the Infrastructure:**
    Once inside the Devcontainer, open a terminal and run:
    ```bash
-   docker-compose up -d
+   docker compose up -d
+   ```
+   Or use the Makefile shortcut:
+   ```bash
+   make up
    ```
    *Note: Our services run on alternate ports (e.g., Postgres on 5433) to prevent conflicts with other projects.*

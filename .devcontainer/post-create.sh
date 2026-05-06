@@ -20,7 +20,7 @@ trap on_error ERR
 # update and install required system packages
 log_step "Installing system packages"
 sudo apt-get update
-sudo apt-get install -y docker.io docker-compose make curl openssl python3-pip python3-venv
+sudo apt-get install -y docker.io docker-compose make curl openssl python3 python3-pip python3-venv
 
 # create and populate python environment
 log_step "Creating project virtual environment"
@@ -32,6 +32,6 @@ fi
 log_step "Installing Python packages"
 "$venv_python" -m pip install --upgrade pip
 # We will need these for our FastF1 extraction and dbt
-"$venv_python" -m pip install --no-cache-dir requests sqlalchemy psycopg2-binary pandas pyarrow fastf1 dbt-postgres
+"$venv_python" -m pip install --no-cache-dir requests sqlalchemy psycopg2-binary pandas pyarrow fastf1 dbt-postgres python-dotenv
 
 log_step "Devcontainer bootstrap complete"
