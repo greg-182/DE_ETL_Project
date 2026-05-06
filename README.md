@@ -11,11 +11,11 @@ This project implements an end-to-end Data Engineering ETL (Extract, Transform, 
 To run this project smoothly without conflicting with other local setups, we use a Devcontainer.
 * **Docker Desktop** installed and running.
 * **Visual Studio Code (VS Code)** installed.
-* **Dev Containers Extension** installed in VS Code.
+* **Dev Containers Extension** installed.
 
 ## Project Structure
 We follow a modular approach. Each directory contains its own `README.md` with specific instructions:
-* `.devcontainer/` - Contains the environment definition for VS Code.
+* `.devcontainer/` - Contains the environment definition.
 * `postgres/` - Scripts and configurations for our Data Warehouse. *(Pending)*
 * `etl/` - Python scripts for extracting FastF1 data. *(Pending)*
 * `airflow/` - DAGs and orchestration configuration. *(Pending)*
@@ -24,7 +24,7 @@ We follow a modular approach. Each directory contains its own `README.md` with s
 
 ## Quick Start
 1. **Open the project in a Devcontainer:**
-   * Open this folder in VS Code.
+   * Open this folder in your IDE.
    * Press `F1` (or `Ctrl+Shift+P`), type `Dev Containers: Rebuild and Reopen in Container`, and hit Enter.
    * Wait for the container to build and the `post-create.sh` script to install Python dependencies.
 
