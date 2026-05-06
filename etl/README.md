@@ -13,10 +13,9 @@ We are using the `fastf1` Python library to communicate with the Formula 1 API.
 3.  **Load**: Uses Pandas and SQLAlchemy to write the DataFrame directly to the `raw` schema in Postgres.
 
 ## How to run manually
-Before Airflow is set up to automate this, you can run the script manually from the Dev Container terminal:
+While Airflow is typically used to automate this process, you can run the script manually from the Dev Container terminal using the Makefile at the root of the project:
 
 ```bash
-cd etl
-python extract_race_results.py
+make etl-extract
 ```
-*(Ensure Postgres is running first!)*
+*(Ensure Postgres is running first by running `make up`!)*

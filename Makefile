@@ -17,7 +17,7 @@ init:
 
 # Start the infrastructure
 up:
-	sudo -E docker compose up -d
+	sudo -E docker compose up -d --build
 	@echo "Attaching Dev Container to the project network..."
 	@sudo docker network connect f1_etl_project_default $$(hostname) 2>/dev/null || true
 

@@ -16,25 +16,42 @@ To run this project smoothly without conflicting with other local setups, we use
 ## Project Structure
 We follow a modular approach. Each directory contains its own `README.md` with specific instructions:
 * `.devcontainer/` - Contains the environment definition.
-* `postgres/` - Scripts and configurations for our Data Warehouse. *(Pending)*
-* `etl/` - Python scripts for extracting FastF1 data. *(Pending)*
-* `airflow/` - DAGs and orchestration configuration. *(Pending)*
+* `postgres/` - Scripts and configurations for our Data Warehouse.
+* `etl/` - Python scripts for extracting FastF1 data.
+* `airflow/` - DAGs and orchestration configuration.
 * `dbt/` - Data transformation models. *(Pending)*
-* `superset/` - Dashboards and data visualization. *(Pending)*
+* `superset/` - Data visualization. *(Pending)*
 
 ## Quick Start
-1. **Open the project in a Devcontainer:**
-   * Open this folder in your IDE.
-   * Press `F1` (or `Ctrl+Shift+P`), type `Dev Containers: Rebuild and Reopen in Container`, and hit Enter.
-   * Wait for the container to build and the `post-create.sh` script to install Python dependencies.
+Run these commands inside the VS Code Dev Container terminal:
 
-2. **Start the Infrastructure:**
-   Once inside the Devcontainer, open a terminal and run:
-   ```bash
-   docker compose up -d
-   ```
-   Or use the Makefile shortcut:
+1. **Start the Infrastructure:**
    ```bash
    make up
    ```
-   *Note: Our services run on alternate ports (e.g., Postgres on 5433) to prevent conflicts with other projects.*
+   *Note: This builds the Airflow image and starts Postgres. Services run on alternate ports (e.g., Postgres on 5433, Airflow UI on 8081) to prevent conflicts with other projects.*
+
+2. **Access Airflow UI:**
+   - Open your browser to <http://localhost:8081>
+   - **Username:** `admin`
+   - **Password:** `admin`
+   - You can unpause and trigger the `f1_race_extraction_dag` from here.
+
+3. **Run Manual Extraction (Optional):**
+   If you don't want to use Airflow, you can run the extraction script manually:
+   ```bash
+   make etl-extract
+   ```
+
+4. **Verify the Data:**
+   Open an interactive SQL shell to query the raw data:
+   ```bash
+   make db-shell
+   ```
+   *Example Query:* `SELECT * FROM raw.race_results LIMIT 5;`
+
+5. **Stop Everything:**
+   ```bash
+   make down
+   ```
+   *(Or `make reset-volumes` to wipe the database clean)*

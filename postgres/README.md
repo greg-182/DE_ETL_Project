@@ -18,11 +18,15 @@ Use the following credentials (defined in the root `.env` file):
 * **Password**: `postgres`
 
 ## How to interact via Terminal
-If you are inside the Dev Container and want to quickly query the database via the command line, run:
+If you are inside the Dev Container and want to quickly query the database via the command line, run our Makefile shortcut:
 ```bash
-PGPASSWORD=postgres psql -h postgres -U postgres -d f1_warehouse -p 5432
+make db-shell
 ```
-*(Note: Inside the docker network, the hostname is `postgres` and the internal port is `5432`. The `5433` port is only for connections from outside the Docker network, like your host machine).*
+
+Alternatively, you can run the raw docker exec command:
+```bash
+sudo docker exec -it f1_etl_project-postgres-1 psql -U postgres -d f1_warehouse
+```
 
 To list the schemas:
 ```sql
