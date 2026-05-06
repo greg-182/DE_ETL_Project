@@ -15,9 +15,9 @@ This document outlines the step-by-step implementation plan for the F1 Data Engi
 *   [ ] Create a global `README.md` containing overall project structure, prerequisites, and startup instructions.
 
 ## Phase 2: Data Warehouse (Postgres)
-*   [ ] Configure Postgres database in `docker-compose.yml`.
-*   [ ] Create `postgres/` directory with initialization scripts for `raw` and `mart` schemas.
-*   [ ] Write a `postgres/README.md` documenting the schema design and commands to connect to the database via terminal/DBeaver.
+*   [x] Configure Postgres database in `docker-compose.yml`.
+*   [x] Create `postgres/` directory with initialization scripts for `raw` and `mart` schemas.
+*   [x] Write a `postgres/README.md` documenting the schema design and commands to connect to the database via terminal/DBeaver.
 
 ## Phase 3: Data Extraction (Python -> FastF1 API)
 *   [ ] Create an `etl/` directory for Python extraction scripts.
