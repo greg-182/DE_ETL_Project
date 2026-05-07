@@ -31,8 +31,8 @@ reset-volumes:
 
 # Run the Python extraction script
 etl-extract: init
+	.venv/bin/python etl/extract_race_results.py
 
 # Open interactive Postgres shell
 db-shell:
 	sudo docker exec -it f1_etl_project-postgres-1 psql -U postgres -d f1_warehouse
-	.venv/bin/python etl/extract_race_results.py

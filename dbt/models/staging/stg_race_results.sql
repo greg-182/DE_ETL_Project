@@ -8,14 +8,18 @@ renamed as (
         "BroadcastName" as driver_name,
         "Abbreviation" as driver_abbreviation,
         "TeamName" as team_name,
-        "Position" as race_position,
-        "GridPosition" as grid_position,
-        "Points" as points,
-        "Laps" as laps_completed,
+        cast("Position" as numeric) as race_position,
+        cast("GridPosition" as numeric) as grid_position,
+        cast("Points" as numeric) as points,
+        cast("Laps" as integer) as laps_completed,
         "Time" as race_time,
         "Status" as status,
+        cast("best_lap_time" as numeric) as best_lap_time,
+        cast("avg_lap_time" as numeric) as avg_lap_time,
         "year" as race_year,
-        "race_name"
+        "round" as race_round,
+        "race_name",
+        "is_wet_race"
     from source
 )
 

@@ -982,3 +982,752 @@ drop table if exists "f1_warehouse"."mart"."f1_race_results__dbt_backup" cascade
 [0m08:46:32.480596 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x716ad15a6550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x716ad3f2e0d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x716ad5503dd0>]}
 [0m08:46:32.483840 [debug] [MainThread]: Flushing usage events
 [0m08:46:33.071000 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:56:08.395197 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c96d510>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c96d910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c96e650>]}
+
+
+============================== 10:56:08.437964 | fab5c361-278d-4a82-9fdc-34f59752fe5c ==============================
+[0m10:56:08.437964 [info ] [MainThread]: Running with dbt=1.9.1
+[0m10:56:08.441987 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'debug': 'False', 'profiles_dir': '/opt/airflow/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'invocation_command': 'dbt run --project-dir /opt/airflow/dbt --profiles-dir /opt/airflow/dbt', 'send_anonymous_usage_stats': 'True'}
+[0m10:56:08.789589 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c966910>]}
+[0m10:56:08.866996 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279f543090>]}
+[0m10:56:08.869450 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m10:56:08.992559 [debug] [MainThread]: checksum: 5e8d1596cf4eae33c11286bbb248a722d21b9f00d8a7ced8137c642517055418, vars: {}, profile: , target: , version: 1.9.1
+[0m10:56:09.562395 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 2 files added, 2 files changed.
+[0m10:56:09.566062 [debug] [MainThread]: Partial parsing: added file: f1_etl_project://models/marts/f1_constructor_standings.sql
+[0m10:56:09.569544 [debug] [MainThread]: Partial parsing: added file: f1_etl_project://models/marts/f1_driver_standings.sql
+[0m10:56:09.571344 [debug] [MainThread]: Partial parsing: updated file: f1_etl_project://models/marts/f1_race_results.sql
+[0m10:56:09.573349 [debug] [MainThread]: Partial parsing: updated file: f1_etl_project://models/staging/stg_race_results.sql
+[0m10:56:10.072616 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279b553e50>]}
+[0m10:56:10.307219 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m10:56:10.351901 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m10:56:10.538392 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279ad67a90>]}
+[0m10:56:10.541511 [info ] [MainThread]: Found 4 models, 1 source, 435 macros
+[0m10:56:10.544750 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c5d5910>]}
+[0m10:56:10.554447 [info ] [MainThread]: 
+[0m10:56:10.557925 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m10:56:10.561226 [info ] [MainThread]: 
+[0m10:56:10.569095 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m10:56:10.581347 [debug] [ThreadPool]: Acquiring new postgres connection 'list_f1_warehouse'
+[0m10:56:10.583254 [debug] [ThreadPool]: Acquiring new postgres connection 'list_f1_warehouse'
+[0m10:56:10.854894 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse"
+[0m10:56:10.855754 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse"
+[0m10:56:10.857781 [debug] [ThreadPool]: On list_f1_warehouse: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m10:56:10.860089 [debug] [ThreadPool]: On list_f1_warehouse: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m10:56:10.862344 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:56:10.864296 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:56:10.901370 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.037 seconds
+[0m10:56:10.902321 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.040 seconds
+[0m10:56:10.906298 [debug] [ThreadPool]: On list_f1_warehouse: Close
+[0m10:56:10.913120 [debug] [ThreadPool]: On list_f1_warehouse: Close
+[0m10:56:10.921779 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_f1_warehouse, now list_f1_warehouse_mart)
+[0m10:56:10.923424 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_f1_warehouse, now list_f1_warehouse_staging)
+[0m10:56:10.933138 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_mart"
+[0m10:56:10.938661 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_staging"
+[0m10:56:10.941406 [debug] [ThreadPool]: On list_f1_warehouse_mart: BEGIN
+[0m10:56:10.943496 [debug] [ThreadPool]: On list_f1_warehouse_staging: BEGIN
+[0m10:56:10.945530 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m10:56:10.947529 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m10:56:10.968137 [debug] [ThreadPool]: SQL status: BEGIN in 0.022 seconds
+[0m10:56:10.970700 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_mart"
+[0m10:56:10.971825 [debug] [ThreadPool]: SQL status: BEGIN in 0.024 seconds
+[0m10:56:10.974107 [debug] [ThreadPool]: On list_f1_warehouse_mart: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse_mart"} */
+select
+      'f1_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'mart'
+    union all
+    select
+      'f1_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'mart'
+    union all
+    select
+      'f1_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'mart'
+  
+[0m10:56:10.976296 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_staging"
+[0m10:56:10.980214 [debug] [ThreadPool]: On list_f1_warehouse_staging: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse_staging"} */
+select
+      'f1_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'f1_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'f1_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m10:56:10.986588 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.008 seconds
+[0m10:56:10.990273 [debug] [ThreadPool]: On list_f1_warehouse_mart: ROLLBACK
+[0m10:56:10.990973 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.008 seconds
+[0m10:56:10.992876 [debug] [ThreadPool]: On list_f1_warehouse_mart: Close
+[0m10:56:10.995468 [debug] [ThreadPool]: On list_f1_warehouse_staging: ROLLBACK
+[0m10:56:11.002127 [debug] [ThreadPool]: On list_f1_warehouse_staging: Close
+[0m10:56:11.013405 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.017324 [debug] [MainThread]: On master: BEGIN
+[0m10:56:11.020173 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m10:56:11.038903 [debug] [MainThread]: SQL status: BEGIN in 0.019 seconds
+[0m10:56:11.041031 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.042969 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m10:56:11.055509 [debug] [MainThread]: SQL status: SELECT 0 in 0.010 seconds
+[0m10:56:11.059342 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c61df50>]}
+[0m10:56:11.061882 [debug] [MainThread]: On master: ROLLBACK
+[0m10:56:11.065183 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.068026 [debug] [MainThread]: On master: BEGIN
+[0m10:56:11.071161 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m10:56:11.073228 [debug] [MainThread]: On master: COMMIT
+[0m10:56:11.075131 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.077346 [debug] [MainThread]: On master: COMMIT
+[0m10:56:11.080537 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m10:56:11.083427 [debug] [MainThread]: On master: Close
+[0m10:56:11.090226 [debug] [Thread-1 (]: Began running node model.f1_etl_project.stg_race_results
+[0m10:56:11.092753 [info ] [Thread-1 (]: 1 of 4 START sql view model staging.stg_race_results ........................... [RUN]
+[0m10:56:11.096207 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_f1_warehouse_staging, now model.f1_etl_project.stg_race_results)
+[0m10:56:11.099154 [debug] [Thread-1 (]: Began compiling node model.f1_etl_project.stg_race_results
+[0m10:56:11.112515 [debug] [Thread-1 (]: Writing injected SQL for node "model.f1_etl_project.stg_race_results"
+[0m10:56:11.146757 [debug] [Thread-1 (]: Began executing node model.f1_etl_project.stg_race_results
+[0m10:56:11.231295 [debug] [Thread-1 (]: Writing runtime sql for node "model.f1_etl_project.stg_race_results"
+[0m10:56:11.270504 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:11.273952 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: BEGIN
+[0m10:56:11.276925 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m10:56:11.307420 [debug] [Thread-1 (]: SQL status: BEGIN in 0.031 seconds
+[0m10:56:11.310523 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:11.314346 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.stg_race_results"} */
+
+  create view "f1_warehouse"."staging"."stg_race_results__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "f1_warehouse"."raw"."race_results"
+),
+
+renamed as (
+    select
+        "DriverNumber" as driver_number,
+        "BroadcastName" as driver_name,
+        "Abbreviation" as driver_abbreviation,
+        "TeamName" as team_name,
+        TRY_CAST("Position" AS NUMERIC) as race_position,
+        TRY_CAST("GridPosition" AS NUMERIC) as grid_position,
+        TRY_CAST("Points" AS NUMERIC) as points,
+        TRY_CAST("Laps" AS INTEGER) as laps_completed,
+        "Time" as race_time,
+        "Status" as status,
+        TRY_CAST("best_lap_time" AS NUMERIC) as best_lap_time,
+        TRY_CAST("avg_lap_time" AS NUMERIC) as avg_lap_time,
+        "year" as race_year,
+        "round" as race_round,
+        "race_name",
+        "is_wet_race"
+    from source
+)
+
+select * from renamed
+  );
+[0m10:56:11.320525 [debug] [Thread-1 (]: Postgres adapter: Postgres error: syntax error at or near "AS"
+LINE 17:         TRY_CAST("Position" AS NUMERIC) as race_position,
+                                     ^
+
+[0m10:56:11.326257 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: ROLLBACK
+[0m10:56:11.329478 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: Close
+[0m10:56:11.341535 [debug] [Thread-1 (]: Database Error in model stg_race_results (models/staging/stg_race_results.sql)
+  syntax error at or near "AS"
+  LINE 17:         TRY_CAST("Position" AS NUMERIC) as race_position,
+                                       ^
+  compiled code at target/run/f1_etl_project/models/staging/stg_race_results.sql
+[0m10:56:11.347915 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fab5c361-278d-4a82-9fdc-34f59752fe5c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c79b090>]}
+[0m10:56:11.351888 [error] [Thread-1 (]: 1 of 4 ERROR creating sql view model staging.stg_race_results .................. [[31mERROR[0m in 0.25s]
+[0m10:56:11.360113 [debug] [Thread-1 (]: Finished running node model.f1_etl_project.stg_race_results
+[0m10:56:11.363677 [debug] [Thread-7 (]: Marking all children of 'model.f1_etl_project.stg_race_results' to be skipped because of status 'error'.  Reason: Database Error in model stg_race_results (models/staging/stg_race_results.sql)
+  syntax error at or near "AS"
+  LINE 17:         TRY_CAST("Position" AS NUMERIC) as race_position,
+                                       ^
+  compiled code at target/run/f1_etl_project/models/staging/stg_race_results.sql.
+[0m10:56:11.369762 [debug] [Thread-3 (]: Began running node model.f1_etl_project.f1_race_results
+[0m10:56:11.373354 [info ] [Thread-3 (]: 2 of 4 SKIP relation mart.f1_race_results ...................................... [[33mSKIP[0m]
+[0m10:56:11.377563 [debug] [Thread-3 (]: Finished running node model.f1_etl_project.f1_race_results
+[0m10:56:11.382792 [debug] [Thread-2 (]: Began running node model.f1_etl_project.f1_constructor_standings
+[0m10:56:11.384487 [debug] [Thread-1 (]: Began running node model.f1_etl_project.f1_driver_standings
+[0m10:56:11.387227 [info ] [Thread-2 (]: 3 of 4 SKIP relation mart.f1_constructor_standings ............................. [[33mSKIP[0m]
+[0m10:56:11.391048 [info ] [Thread-1 (]: 4 of 4 SKIP relation mart.f1_driver_standings .................................. [[33mSKIP[0m]
+[0m10:56:11.394227 [debug] [Thread-2 (]: Finished running node model.f1_etl_project.f1_constructor_standings
+[0m10:56:11.397236 [debug] [Thread-1 (]: Finished running node model.f1_etl_project.f1_driver_standings
+[0m10:56:11.407374 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.409832 [debug] [MainThread]: On master: BEGIN
+[0m10:56:11.412823 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m10:56:11.448524 [debug] [MainThread]: SQL status: BEGIN in 0.036 seconds
+[0m10:56:11.452127 [debug] [MainThread]: On master: COMMIT
+[0m10:56:11.456205 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:11.459798 [debug] [MainThread]: On master: COMMIT
+[0m10:56:11.463432 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m10:56:11.466162 [debug] [MainThread]: On master: Close
+[0m10:56:11.469817 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:56:11.472889 [debug] [MainThread]: Connection 'list_f1_warehouse_mart' was properly closed.
+[0m10:56:11.475492 [debug] [MainThread]: Connection 'model.f1_etl_project.stg_race_results' was properly closed.
+[0m10:56:11.478408 [info ] [MainThread]: 
+[0m10:56:11.481745 [info ] [MainThread]: Finished running 3 table models, 1 view model in 0 hours 0 minutes and 0.91 seconds (0.91s).
+[0m10:56:11.486510 [debug] [MainThread]: Command end result
+[0m10:56:11.579182 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m10:56:11.590305 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m10:56:11.611169 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m10:56:11.613534 [info ] [MainThread]: 
+[0m10:56:11.616528 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m10:56:11.620551 [info ] [MainThread]: 
+[0m10:56:11.623985 [error] [MainThread]:   Database Error in model stg_race_results (models/staging/stg_race_results.sql)
+  syntax error at or near "AS"
+  LINE 17:         TRY_CAST("Position" AS NUMERIC) as race_position,
+                                       ^
+  compiled code at target/run/f1_etl_project/models/staging/stg_race_results.sql
+[0m10:56:11.627282 [info ] [MainThread]: 
+[0m10:56:11.630467 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=3 TOTAL=4
+[0m10:56:11.635415 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 3.3475952, "process_in_blocks": "0", "process_kernel_time": 1.184572, "process_mem_max_rss": "128708", "process_out_blocks": "0", "process_user_time": 5.359771}
+[0m10:56:11.638363 [debug] [MainThread]: Command `dbt run` failed at 10:56:11.638033 after 3.35 seconds
+[0m10:56:11.641070 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7327a0903bd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7327a0903d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73279c96f010>]}
+[0m10:56:11.643727 [debug] [MainThread]: Flushing usage events
+[0m10:56:12.260465 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m10:56:51.920905 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d546ad90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d546b410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d52bbf90>]}
+
+
+============================== 10:56:51.966358 | f1d1260e-7e9e-4439-b491-1b494ae8a63a ==============================
+[0m10:56:51.966358 [info ] [MainThread]: Running with dbt=1.9.1
+[0m10:56:51.968732 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': '/opt/airflow/dbt/logs', 'fail_fast': 'False', 'profiles_dir': '/opt/airflow/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'log_format': 'default', 'target_path': 'None', 'invocation_command': 'dbt run --project-dir /opt/airflow/dbt --profiles-dir /opt/airflow/dbt', 'send_anonymous_usage_stats': 'True'}
+[0m10:56:52.206213 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d4ea2390>]}
+[0m10:56:52.283961 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d7ffc450>]}
+[0m10:56:52.286609 [info ] [MainThread]: Registered adapter: postgres=1.9.1
+[0m10:56:52.428121 [debug] [MainThread]: checksum: 5e8d1596cf4eae33c11286bbb248a722d21b9f00d8a7ced8137c642517055418, vars: {}, profile: , target: , version: 1.9.1
+[0m10:56:52.929270 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m10:56:52.932255 [debug] [MainThread]: Partial parsing: updated file: f1_etl_project://models/staging/stg_race_results.sql
+[0m10:56:53.472515 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d437d7d0>]}
+[0m10:56:53.724160 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m10:56:53.765586 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m10:56:53.894594 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d37a77d0>]}
+[0m10:56:53.897986 [info ] [MainThread]: Found 4 models, 1 source, 435 macros
+[0m10:56:53.901959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d3f67fd0>]}
+[0m10:56:53.907135 [info ] [MainThread]: 
+[0m10:56:53.911431 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m10:56:53.914809 [info ] [MainThread]: 
+[0m10:56:53.918711 [debug] [MainThread]: Acquiring new postgres connection 'master'
+[0m10:56:53.930854 [debug] [ThreadPool]: Acquiring new postgres connection 'list_f1_warehouse'
+[0m10:56:53.933237 [debug] [ThreadPool]: Acquiring new postgres connection 'list_f1_warehouse'
+[0m10:56:54.147825 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse"
+[0m10:56:54.149444 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse"
+[0m10:56:54.151918 [debug] [ThreadPool]: On list_f1_warehouse: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m10:56:54.154353 [debug] [ThreadPool]: On list_f1_warehouse: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse"} */
+
+    select distinct nspname from pg_namespace
+  
+[0m10:56:54.156428 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:56:54.158584 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m10:56:54.183534 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.025 seconds
+[0m10:56:54.184676 [debug] [ThreadPool]: SQL status: SELECT 9 in 0.028 seconds
+[0m10:56:54.187931 [debug] [ThreadPool]: On list_f1_warehouse: Close
+[0m10:56:54.191375 [debug] [ThreadPool]: On list_f1_warehouse: Close
+[0m10:56:54.202955 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_f1_warehouse, now list_f1_warehouse_mart)
+[0m10:56:54.204456 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_f1_warehouse, now list_f1_warehouse_staging)
+[0m10:56:54.220873 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_mart"
+[0m10:56:54.224404 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_staging"
+[0m10:56:54.226638 [debug] [ThreadPool]: On list_f1_warehouse_mart: BEGIN
+[0m10:56:54.230636 [debug] [ThreadPool]: On list_f1_warehouse_staging: BEGIN
+[0m10:56:54.234336 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m10:56:54.236812 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m10:56:54.259598 [debug] [ThreadPool]: SQL status: BEGIN in 0.025 seconds
+[0m10:56:54.266663 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_mart"
+[0m10:56:54.267749 [debug] [ThreadPool]: SQL status: BEGIN in 0.031 seconds
+[0m10:56:54.270141 [debug] [ThreadPool]: On list_f1_warehouse_mart: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse_mart"} */
+select
+      'f1_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'mart'
+    union all
+    select
+      'f1_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'mart'
+    union all
+    select
+      'f1_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'mart'
+  
+[0m10:56:54.272952 [debug] [ThreadPool]: Using postgres connection "list_f1_warehouse_staging"
+[0m10:56:54.284103 [debug] [ThreadPool]: SQL status: SELECT 1 in 0.008 seconds
+[0m10:56:54.285924 [debug] [ThreadPool]: On list_f1_warehouse_staging: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "list_f1_warehouse_staging"} */
+select
+      'f1_warehouse' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'staging'
+    union all
+    select
+      'f1_warehouse' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'staging'
+    union all
+    select
+      'f1_warehouse' as database,
+      matviewname as name,
+      schemaname as schema,
+      'materialized_view' as type
+    from pg_matviews
+    where schemaname ilike 'staging'
+  
+[0m10:56:54.290895 [debug] [ThreadPool]: On list_f1_warehouse_mart: ROLLBACK
+[0m10:56:54.299340 [debug] [ThreadPool]: On list_f1_warehouse_mart: Close
+[0m10:56:54.303758 [debug] [ThreadPool]: SQL status: SELECT 0 in 0.009 seconds
+[0m10:56:54.307816 [debug] [ThreadPool]: On list_f1_warehouse_staging: ROLLBACK
+[0m10:56:54.315315 [debug] [ThreadPool]: On list_f1_warehouse_staging: Close
+[0m10:56:54.327455 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:54.330287 [debug] [MainThread]: On master: BEGIN
+[0m10:56:54.333109 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m10:56:54.359223 [debug] [MainThread]: SQL status: BEGIN in 0.026 seconds
+[0m10:56:54.362314 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:54.364967 [debug] [MainThread]: On master: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "connection_name": "master"} */
+select distinct
+        dependent_namespace.nspname as dependent_schema,
+        dependent_class.relname as dependent_name,
+        referenced_namespace.nspname as referenced_schema,
+        referenced_class.relname as referenced_name
+
+    -- Query for views: views are entries in pg_class with an entry in pg_rewrite, but we avoid
+    -- a seq scan on pg_rewrite by leveraging the fact there is an "internal" row in pg_depend for
+    -- the view...
+    from pg_class as dependent_class
+    join pg_namespace as dependent_namespace on dependent_namespace.oid = dependent_class.relnamespace
+    join pg_depend as dependent_depend on dependent_depend.refobjid = dependent_class.oid
+        and dependent_depend.classid = 'pg_rewrite'::regclass
+        and dependent_depend.refclassid = 'pg_class'::regclass
+        and dependent_depend.deptype = 'i'
+
+    -- ... and via pg_depend (that has a row per column, hence the need for "distinct" above, and
+    -- making sure to exclude the internal row to avoid a view appearing to depend on itself)...
+    join pg_depend as joining_depend on joining_depend.objid = dependent_depend.objid
+        and joining_depend.classid = 'pg_rewrite'::regclass
+        and joining_depend.refclassid = 'pg_class'::regclass
+        and joining_depend.refobjid != dependent_depend.refobjid
+
+    -- ... we can find the tables they query from in pg_class, but excluding system tables. Note we
+    -- don't need need to exclude _dependent_ system tables, because they only query from other
+    -- system tables, and so are automatically excluded by excluding _referenced_ system tables
+    join pg_class as referenced_class on referenced_class.oid = joining_depend.refobjid
+    join pg_namespace as referenced_namespace on referenced_namespace.oid = referenced_class.relnamespace
+        and referenced_namespace.nspname != 'information_schema'
+        and referenced_namespace.nspname not like 'pg\_%'
+
+    order by
+        dependent_schema, dependent_name, referenced_schema, referenced_name;
+[0m10:56:54.376784 [debug] [MainThread]: SQL status: SELECT 0 in 0.008 seconds
+[0m10:56:54.380310 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d3f83f50>]}
+[0m10:56:54.382699 [debug] [MainThread]: On master: ROLLBACK
+[0m10:56:54.385118 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:54.386945 [debug] [MainThread]: On master: BEGIN
+[0m10:56:54.393555 [debug] [MainThread]: SQL status: BEGIN in 0.001 seconds
+[0m10:56:54.396141 [debug] [MainThread]: On master: COMMIT
+[0m10:56:54.398174 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:54.400229 [debug] [MainThread]: On master: COMMIT
+[0m10:56:54.402789 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m10:56:54.406908 [debug] [MainThread]: On master: Close
+[0m10:56:54.416537 [debug] [Thread-1 (]: Began running node model.f1_etl_project.stg_race_results
+[0m10:56:54.419104 [info ] [Thread-1 (]: 1 of 4 START sql view model staging.stg_race_results ........................... [RUN]
+[0m10:56:54.424457 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_f1_warehouse_staging, now model.f1_etl_project.stg_race_results)
+[0m10:56:54.427677 [debug] [Thread-1 (]: Began compiling node model.f1_etl_project.stg_race_results
+[0m10:56:54.447323 [debug] [Thread-1 (]: Writing injected SQL for node "model.f1_etl_project.stg_race_results"
+[0m10:56:54.477136 [debug] [Thread-1 (]: Began executing node model.f1_etl_project.stg_race_results
+[0m10:56:54.561883 [debug] [Thread-1 (]: Writing runtime sql for node "model.f1_etl_project.stg_race_results"
+[0m10:56:54.603920 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:54.608086 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: BEGIN
+[0m10:56:54.612481 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m10:56:54.645036 [debug] [Thread-1 (]: SQL status: BEGIN in 0.033 seconds
+[0m10:56:54.650292 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:54.659520 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.stg_race_results"} */
+
+  create view "f1_warehouse"."staging"."stg_race_results__dbt_tmp"
+    
+    
+  as (
+    with source as (
+    select * from "f1_warehouse"."raw"."race_results"
+),
+
+renamed as (
+    select
+        "DriverNumber" as driver_number,
+        "BroadcastName" as driver_name,
+        "Abbreviation" as driver_abbreviation,
+        "TeamName" as team_name,
+        cast("Position" as numeric) as race_position,
+        cast("GridPosition" as numeric) as grid_position,
+        cast("Points" as numeric) as points,
+        cast("Laps" as integer) as laps_completed,
+        "Time" as race_time,
+        "Status" as status,
+        cast("best_lap_time" as numeric) as best_lap_time,
+        cast("avg_lap_time" as numeric) as avg_lap_time,
+        "year" as race_year,
+        "round" as race_round,
+        "race_name",
+        "is_wet_race"
+    from source
+)
+
+select * from renamed
+  );
+[0m10:56:54.680221 [debug] [Thread-1 (]: SQL status: CREATE VIEW in 0.015 seconds
+[0m10:56:54.705322 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:54.717854 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.stg_race_results"} */
+alter table "f1_warehouse"."staging"."stg_race_results__dbt_tmp" rename to "stg_race_results"
+[0m10:56:54.723817 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.002 seconds
+[0m10:56:54.816508 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: COMMIT
+[0m10:56:54.822625 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:54.836389 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: COMMIT
+[0m10:56:54.849005 [debug] [Thread-1 (]: SQL status: COMMIT in 0.009 seconds
+[0m10:56:54.872942 [debug] [Thread-1 (]: Applying DROP to: "f1_warehouse"."staging"."stg_race_results__dbt_backup"
+[0m10:56:54.892442 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.stg_race_results"
+[0m10:56:54.895943 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.stg_race_results"} */
+drop view if exists "f1_warehouse"."staging"."stg_race_results__dbt_backup" cascade
+[0m10:56:54.900550 [debug] [Thread-1 (]: SQL status: DROP VIEW in 0.001 seconds
+[0m10:56:54.907131 [debug] [Thread-1 (]: On model.f1_etl_project.stg_race_results: Close
+[0m10:56:54.914217 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d59c2250>]}
+[0m10:56:54.917626 [info ] [Thread-1 (]: 1 of 4 OK created sql view model staging.stg_race_results ...................... [[32mCREATE VIEW[0m in 0.49s]
+[0m10:56:54.923102 [debug] [Thread-1 (]: Finished running node model.f1_etl_project.stg_race_results
+[0m10:56:54.927210 [debug] [Thread-3 (]: Began running node model.f1_etl_project.f1_race_results
+[0m10:56:54.929692 [info ] [Thread-3 (]: 2 of 4 START sql table model mart.f1_race_results .............................. [RUN]
+[0m10:56:54.937052 [debug] [Thread-3 (]: Acquiring new postgres connection 'model.f1_etl_project.f1_race_results'
+[0m10:56:54.940353 [debug] [Thread-3 (]: Began compiling node model.f1_etl_project.f1_race_results
+[0m10:56:54.954562 [debug] [Thread-3 (]: Writing injected SQL for node "model.f1_etl_project.f1_race_results"
+[0m10:56:54.987686 [debug] [Thread-3 (]: Began executing node model.f1_etl_project.f1_race_results
+[0m10:56:55.055434 [debug] [Thread-3 (]: Writing runtime sql for node "model.f1_etl_project.f1_race_results"
+[0m10:56:55.089687 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.093196 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: BEGIN
+[0m10:56:55.097119 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m10:56:55.127078 [debug] [Thread-3 (]: SQL status: BEGIN in 0.030 seconds
+[0m10:56:55.129773 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.133215 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_race_results"} */
+
+  
+    
+
+  create  table "f1_warehouse"."mart"."f1_race_results__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with staging as (
+    select * from "f1_warehouse"."staging"."stg_race_results"
+),
+
+final as (
+    select
+        race_year,
+        race_round,
+        race_name,
+        is_wet_race,
+        driver_name,
+        driver_abbreviation,
+        team_name,
+        grid_position,
+        race_position,
+        (grid_position - race_position) as position_change,
+        points,
+        laps_completed,
+        status,
+        -- Flag to easily count retirements (Did Not Finish)
+        case 
+            when status not in ('Finished', '+1 Lap', '+2 Laps', '+3 Laps', '+4 Laps', '+5 Laps', '+6 Laps') 
+            then 1 
+            else 0 
+        end as is_dnf,
+        best_lap_time,
+        avg_lap_time
+    from staging
+    where race_position is not null
+    order by race_year desc, race_round asc, race_position asc
+)
+
+select * from final
+  );
+  
+[0m10:56:55.160237 [debug] [Thread-3 (]: SQL status: SELECT 88 in 0.023 seconds
+[0m10:56:55.181397 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.185241 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_race_results"} */
+alter table "f1_warehouse"."mart"."f1_race_results" rename to "f1_race_results__dbt_backup"
+[0m10:56:55.189158 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m10:56:55.198450 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.201509 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_race_results"} */
+alter table "f1_warehouse"."mart"."f1_race_results__dbt_tmp" rename to "f1_race_results"
+[0m10:56:55.205138 [debug] [Thread-3 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m10:56:55.216926 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: COMMIT
+[0m10:56:55.220492 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.225619 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: COMMIT
+[0m10:56:55.239933 [debug] [Thread-3 (]: SQL status: COMMIT in 0.010 seconds
+[0m10:56:55.248289 [debug] [Thread-3 (]: Applying DROP to: "f1_warehouse"."mart"."f1_race_results__dbt_backup"
+[0m10:56:55.258900 [debug] [Thread-3 (]: Using postgres connection "model.f1_etl_project.f1_race_results"
+[0m10:56:55.261615 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_race_results"} */
+drop table if exists "f1_warehouse"."mart"."f1_race_results__dbt_backup" cascade
+[0m10:56:55.267778 [debug] [Thread-3 (]: SQL status: DROP TABLE in 0.004 seconds
+[0m10:56:55.273782 [debug] [Thread-3 (]: On model.f1_etl_project.f1_race_results: Close
+[0m10:56:55.276798 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d072a490>]}
+[0m10:56:55.279944 [info ] [Thread-3 (]: 2 of 4 OK created sql table model mart.f1_race_results ......................... [[32mSELECT 88[0m in 0.34s]
+[0m10:56:55.283822 [debug] [Thread-3 (]: Finished running node model.f1_etl_project.f1_race_results
+[0m10:56:55.290622 [debug] [Thread-2 (]: Began running node model.f1_etl_project.f1_constructor_standings
+[0m10:56:55.291590 [debug] [Thread-1 (]: Began running node model.f1_etl_project.f1_driver_standings
+[0m10:56:55.294201 [info ] [Thread-2 (]: 3 of 4 START sql table model mart.f1_constructor_standings ..................... [RUN]
+[0m10:56:55.297806 [info ] [Thread-1 (]: 4 of 4 START sql table model mart.f1_driver_standings .......................... [RUN]
+[0m10:56:55.301896 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_f1_warehouse_mart, now model.f1_etl_project.f1_constructor_standings)
+[0m10:56:55.305896 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.f1_etl_project.stg_race_results, now model.f1_etl_project.f1_driver_standings)
+[0m10:56:55.308814 [debug] [Thread-2 (]: Began compiling node model.f1_etl_project.f1_constructor_standings
+[0m10:56:55.311798 [debug] [Thread-1 (]: Began compiling node model.f1_etl_project.f1_driver_standings
+[0m10:56:55.321939 [debug] [Thread-2 (]: Writing injected SQL for node "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.327559 [debug] [Thread-1 (]: Writing injected SQL for node "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.345825 [debug] [Thread-2 (]: Began executing node model.f1_etl_project.f1_constructor_standings
+[0m10:56:55.358870 [debug] [Thread-2 (]: Writing runtime sql for node "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.360139 [debug] [Thread-1 (]: Began executing node model.f1_etl_project.f1_driver_standings
+[0m10:56:55.372797 [debug] [Thread-1 (]: Writing runtime sql for node "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.387950 [debug] [Thread-2 (]: Using postgres connection "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.391350 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: BEGIN
+[0m10:56:55.395524 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.396492 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m10:56:55.399577 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: BEGIN
+[0m10:56:55.407482 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m10:56:55.437463 [debug] [Thread-2 (]: SQL status: BEGIN in 0.041 seconds
+[0m10:56:55.440810 [debug] [Thread-2 (]: Using postgres connection "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.444171 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_constructor_standings"} */
+
+  
+    
+
+  create  table "f1_warehouse"."mart"."f1_constructor_standings__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with race_results as (
+    select * from "f1_warehouse"."mart"."f1_race_results"
+),
+
+constructor_race_points as (
+    select
+        race_year,
+        race_round,
+        race_name,
+        team_name,
+        sum(points) as team_race_points
+    from race_results
+    group by 1, 2, 3, 4
+),
+
+standings as (
+    select
+        race_year,
+        race_round,
+        race_name,
+        team_name,
+        team_race_points,
+        sum(team_race_points) over (
+            partition by race_year, team_name 
+            order by race_round
+            rows between unbounded preceding and current row
+        ) as cumulative_points
+    from constructor_race_points
+)
+
+select * 
+from standings
+order by race_year desc, race_round asc, cumulative_points desc
+  );
+  
+[0m10:56:55.445486 [debug] [Thread-1 (]: SQL status: BEGIN in 0.038 seconds
+[0m10:56:55.451302 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.454229 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_driver_standings"} */
+
+  
+    
+
+  create  table "f1_warehouse"."mart"."f1_driver_standings__dbt_tmp"
+  
+  
+    as
+  
+  (
+    with race_results as (
+    select * from "f1_warehouse"."mart"."f1_race_results"
+),
+
+driver_points as (
+    select
+        race_year,
+        race_round,
+        race_name,
+        driver_name,
+        team_name,
+        points as race_points
+    from race_results
+),
+
+standings as (
+    select
+        race_year,
+        race_round,
+        race_name,
+        driver_name,
+        team_name,
+        race_points,
+        sum(race_points) over (
+            partition by race_year, driver_name 
+            order by race_round
+            rows between unbounded preceding and current row
+        ) as cumulative_points
+    from driver_points
+)
+
+select * 
+from standings
+order by race_year desc, race_round asc, cumulative_points desc
+  );
+  
+[0m10:56:55.464185 [debug] [Thread-2 (]: SQL status: SELECT 44 in 0.015 seconds
+[0m10:56:55.472475 [debug] [Thread-2 (]: Using postgres connection "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.473922 [debug] [Thread-1 (]: SQL status: SELECT 88 in 0.017 seconds
+[0m10:56:55.477183 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_constructor_standings"} */
+alter table "f1_warehouse"."mart"."f1_constructor_standings__dbt_tmp" rename to "f1_constructor_standings"
+[0m10:56:55.488522 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.492707 [debug] [Thread-2 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m10:56:55.495563 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_driver_standings"} */
+alter table "f1_warehouse"."mart"."f1_driver_standings__dbt_tmp" rename to "f1_driver_standings"
+[0m10:56:55.501418 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: COMMIT
+[0m10:56:55.507855 [debug] [Thread-1 (]: SQL status: ALTER TABLE in 0.001 seconds
+[0m10:56:55.510541 [debug] [Thread-2 (]: Using postgres connection "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.517585 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: COMMIT
+[0m10:56:55.522751 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: COMMIT
+[0m10:56:55.527406 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.535076 [debug] [Thread-2 (]: SQL status: COMMIT in 0.004 seconds
+[0m10:56:55.536930 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: COMMIT
+[0m10:56:55.550977 [debug] [Thread-2 (]: Applying DROP to: "f1_warehouse"."mart"."f1_constructor_standings__dbt_backup"
+[0m10:56:55.555541 [debug] [Thread-1 (]: SQL status: COMMIT in 0.002 seconds
+[0m10:56:55.557052 [debug] [Thread-2 (]: Using postgres connection "model.f1_etl_project.f1_constructor_standings"
+[0m10:56:55.570520 [debug] [Thread-1 (]: Applying DROP to: "f1_warehouse"."mart"."f1_driver_standings__dbt_backup"
+[0m10:56:55.572832 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_constructor_standings"} */
+drop table if exists "f1_warehouse"."mart"."f1_constructor_standings__dbt_backup" cascade
+[0m10:56:55.581074 [debug] [Thread-2 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m10:56:55.577340 [debug] [Thread-1 (]: Using postgres connection "model.f1_etl_project.f1_driver_standings"
+[0m10:56:55.586062 [debug] [Thread-2 (]: On model.f1_etl_project.f1_constructor_standings: Close
+[0m10:56:55.588954 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: /* {"app": "dbt", "dbt_version": "1.9.1", "profile_name": "f1_warehouse", "target_name": "dev", "node_id": "model.f1_etl_project.f1_driver_standings"} */
+drop table if exists "f1_warehouse"."mart"."f1_driver_standings__dbt_backup" cascade
+[0m10:56:55.596154 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d0750550>]}
+[0m10:56:55.600059 [debug] [Thread-1 (]: SQL status: DROP TABLE in 0.001 seconds
+[0m10:56:55.604422 [info ] [Thread-2 (]: 3 of 4 OK created sql table model mart.f1_constructor_standings ................ [[32mSELECT 44[0m in 0.29s]
+[0m10:56:55.612459 [debug] [Thread-1 (]: On model.f1_etl_project.f1_driver_standings: Close
+[0m10:56:55.616338 [debug] [Thread-2 (]: Finished running node model.f1_etl_project.f1_constructor_standings
+[0m10:56:55.620264 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'f1d1260e-7e9e-4439-b491-1b494ae8a63a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d0750650>]}
+[0m10:56:55.625966 [info ] [Thread-1 (]: 4 of 4 OK created sql table model mart.f1_driver_standings ..................... [[32mSELECT 88[0m in 0.31s]
+[0m10:56:55.630050 [debug] [Thread-1 (]: Finished running node model.f1_etl_project.f1_driver_standings
+[0m10:56:55.642665 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:55.647077 [debug] [MainThread]: On master: BEGIN
+[0m10:56:55.650696 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m10:56:55.678300 [debug] [MainThread]: SQL status: BEGIN in 0.028 seconds
+[0m10:56:55.681278 [debug] [MainThread]: On master: COMMIT
+[0m10:56:55.684496 [debug] [MainThread]: Using postgres connection "master"
+[0m10:56:55.686938 [debug] [MainThread]: On master: COMMIT
+[0m10:56:55.690248 [debug] [MainThread]: SQL status: COMMIT in 0.000 seconds
+[0m10:56:55.693421 [debug] [MainThread]: On master: Close
+[0m10:56:55.697082 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m10:56:55.700250 [debug] [MainThread]: Connection 'model.f1_etl_project.f1_constructor_standings' was properly closed.
+[0m10:56:55.704717 [debug] [MainThread]: Connection 'model.f1_etl_project.f1_driver_standings' was properly closed.
+[0m10:56:55.707881 [debug] [MainThread]: Connection 'model.f1_etl_project.f1_race_results' was properly closed.
+[0m10:56:55.711155 [info ] [MainThread]: 
+[0m10:56:55.714090 [info ] [MainThread]: Finished running 3 table models, 1 view model in 0 hours 0 minutes and 1.79 seconds (1.79s).
+[0m10:56:55.720012 [debug] [MainThread]: Command end result
+[0m10:56:55.808432 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m10:56:55.824079 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m10:56:55.854480 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m10:56:55.857990 [info ] [MainThread]: 
+[0m10:56:55.861140 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m10:56:55.872873 [info ] [MainThread]: 
+[0m10:56:55.876687 [info ] [MainThread]: Done. PASS=4 WARN=0 ERROR=0 SKIP=0 TOTAL=4
+[0m10:56:55.886519 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 4.065473, "process_in_blocks": "0", "process_kernel_time": 0.7402, "process_mem_max_rss": "129356", "process_out_blocks": "0", "process_user_time": 6.855262}
+[0m10:56:55.889934 [debug] [MainThread]: Command `dbt run` succeeded at 10:56:55.889507 after 4.07 seconds
+[0m10:56:55.893236 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d93dfd10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d93dfb10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e59d949af10>]}
+[0m10:56:55.896205 [debug] [MainThread]: Flushing usage events
+[0m10:56:56.639526 [debug] [MainThread]: An error was encountered while trying to flush usage events
