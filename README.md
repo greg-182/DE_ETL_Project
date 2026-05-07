@@ -19,8 +19,8 @@ We follow a modular approach. Each directory contains its own `README.md` with s
 * `postgres/` - Scripts and configurations for our Data Warehouse.
 * `etl/` - Python scripts for extracting FastF1 data.
 * `airflow/` - DAGs and orchestration configuration.
-* `dbt/` - Data transformation models. *(Pending)*
-* `superset/` - Data visualization. *(Pending)*
+* `dbt/` - Data transformation models.
+* `superset/` - Data visualization.
 
 ## Quick Start
 Run these commands inside the VS Code Dev Container terminal:
@@ -29,29 +29,34 @@ Run these commands inside the VS Code Dev Container terminal:
    ```bash
    make up
    ```
-   *Note: This builds the Airflow image and starts Postgres. Services run on alternate ports (e.g., Postgres on 5433, Airflow UI on 8081) to prevent conflicts with other projects.*
+   *Note: This builds the custom images and starts Postgres, Airflow, and Superset. Services run on alternate ports (Postgres on 5433, Airflow UI on 8081, Superset on 8089) to prevent conflicts.*
 
 2. **Access Airflow UI:**
    - Open your browser to <http://localhost:8081>
    - **Username:** `admin`
    - **Password:** `admin`
-   - You can unpause and trigger the `f1_race_extraction_dag` from here.
+   - You can unpause and trigger the `f1_race_extraction_dag` from here to extract data and run dbt models.
 
-3. **Run Manual Extraction (Optional):**
+3. **Access Superset UI:**
+   - Open your browser to <http://localhost:8089>
+   - **Username:** `admin`
+   - **Password:** `admin`
+
+4. **Run Manual Extraction (Optional):**
    If you don't want to use Airflow, you can run the extraction script manually:
    ```bash
    make etl-extract
    ```
 
-4. **Verify the Data:**
-   Open an interactive SQL shell to query the raw data:
+5. **Verify the Data:**
+   Open an interactive SQL shell to query the raw or transformed data:
    ```bash
    make db-shell
    ```
-   *Example Query:* `SELECT * FROM raw.race_results LIMIT 5;`
+   *Example Query:* `SELECT * FROM mart.f1_race_results LIMIT 5;`
 
-5. **Stop Everything:**
+6. **Stop Everything:**
    ```bash
    make down
    ```
-   *(Or `make reset-volumes` to wipe the database clean)*
+   *(Or `make reset-volumes` to wipe the databases clean)*

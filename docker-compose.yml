@@ -1,3 +1,21 @@
+x-superset-common: &superset-common
+  image: f1-superset-local
+  pull_policy: never
+  build:
+    context: ./superset/image
+    dockerfile: Dockerfile
+  env_file:
+    - .env
+  environment: &superset-common-env
+    SUPERSET_DB_HOST: postgres
+    SUPERSET_DB_PORT: "5432"
+    SUPERSET_ADMIN_USERNAME: admin
+    SUPERSET_ADMIN_PASSWORD: admin
+  depends_on:
+    postgres:
+      condition: service_healthy
+  user: "0:0"
+
 x-airflow-common: &airflow-common
   image: f1-airflow-local
   pull_policy: never
@@ -67,6 +85,34 @@ services:
       timeout: 5s
       retries: 5
     restart: unless-stopped
+
+  superset-init:
+    <<: *superset-common
+    command: bootstrap
+    healthcheck:
+      disable: true
+
+  superset:
+    <<: *superset-common
+    command: run-server
+    ports:
+      - ${SUPERSET_PORT}:${SUPERSET_PORT}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      superset-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - --fail
+        - http://localhost:${SUPERSET_PORT}/health
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   airflow-init:
     <<: *airflow-common
