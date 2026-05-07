@@ -1,165 +1,72 @@
-# Superset SQL Snippets
+﻿# Superset SQL Snippets (Formula 1)
 
-This file collects copy-paste SQL snippets for common chart customizations in Superset.
+This file collects copy-paste SQL snippets for common chart customizations in Superset based on the Formula 1 datasets.
 
 Dataset used in examples:
-- `l4_mart.v_air_quality_hourly_station_8`
-- `mart.v_air_quality_hourly`
+- mart.f1_race_results
 
 How to use these:
 - Add expressions in **Dataset -> Edit dataset -> Columns -> + COLUMN** for calculated columns.
 - Add expressions in **Dataset -> Edit dataset -> Metrics -> + METRIC** for custom metrics.
 - Use the output alias as chart dimension/metric fields.
-- Prefer numeric sort columns (`month_number`, `day_of_week_number`) when a chart type supports custom sorting.
 
-## Preferred Built-In Short Labels
+## Custom Metrics
 
-The datetime dimension now exposes these ready-made sortable labels:
-- `month_short`
-- `day_short`
+### Podium Finishes
+Count the number of times a driver finished in 1st, 2nd, or 3rd place.
+``sql
+SUM(CASE WHEN race_position <= 3 THEN 1 ELSE 0 END)
+``
+Suggested metric name: podium_count
 
-These two columns intentionally use leading spaces so that plain alphabetic sorting still produces chronological order in Superset.
+### Race Wins
+Count the number of 1st place finishes.
+``sql
+SUM(CASE WHEN race_position = 1 THEN 1 ELSE 0 END)
+``
+Suggested metric name: win_count
 
-Use:
-- `month_short` when you want `Jan`, `Feb`, ... in chronological order
-- `day_short` when you want `Mon`, `Tue`, ... in chronological order
+### Total Points
+Calculate the total points scored.
+``sql
+SUM(points)
+``
+Suggested metric name: 	otal_points
 
-If a visualization supports sort-by-column cleanly, you can still use:
-- `month_name` sorted by `month_number`
-- `day_name` sorted by `day_of_week_number`
+## Calculated Columns
 
-## Month Names In Logical Order (Space-Padded Label)
-
-This is now baked into `month_short` in the warehouse. Keep it here as a reference.
-
-```sql
-CASE
-WHEN month_name = 'January'   THEN '           Jan'
-WHEN month_name = 'February'  THEN '          Feb'
-WHEN month_name = 'March'     THEN '         Mar'
-WHEN month_name = 'April'     THEN '        Apr'
-WHEN month_name = 'May'       THEN '       May'
-WHEN month_name = 'June'      THEN '      Jun'
-WHEN month_name = 'July'      THEN '     Jul'
-WHEN month_name = 'August'    THEN '    Aug'
-WHEN month_name = 'September' THEN '   Sep'
-WHEN month_name = 'October'   THEN '  Oct'
-WHEN month_name = 'November'  THEN ' Nov'
-WHEN month_name = 'December'  THEN 'Dec'
-ELSE month_name
-END
-```
-
-## Month Labels Without Space Padding (Preferred Where Supported)
-
-If the visualization supports sort-by-column, use:
-- label: `month_name`
-- sort by: `month_number` ascending
-
-If you still need a single expression for display + ordering:
-
-```sql
-CONCAT(LPAD(month_number::text, 2, '0'), ' - ', month_name)
-```
-
-## Season names (in alphabetic order - use spaces to adjust)
-
-```sql
+### Top 10 Finisher Flag
+Categorize whether the result was in the top 10.
+``sql
 CASE 
-  WHEN month_name IN ('December', 'January', 'February') THEN 'Winter'
-  WHEN month_name IN ('March', 'April', 'May') THEN 'Spring'
-  WHEN month_name IN ('June', 'July', 'August') THEN 'Summer'
-  WHEN month_name IN ('September', 'October', 'November') THEN 'Autumn'
-  ELSE NULL 
+  WHEN race_position <= 10 THEN 'Top 10'
+  ELSE 'Outside Top 10'
 END
-```
+``
 
-## Weekday Names In Logical Order (Space-Padded Label)
-
-This is now baked into `day_short` in the warehouse. Keep it here as a reference.
-
-```sql
+### Podium Category
+Label the specific podium step or 'Off Podium'.
+``sql
 CASE
-WHEN day_name = 'Mon' THEN '      Mon'
-WHEN day_name = 'Tue' THEN '     Tue'
-WHEN day_name = 'Wed' THEN '    Wed'
-WHEN day_name = 'Thu' THEN '   Thu'
-WHEN day_name = 'Fri' THEN '  Fri'
-WHEN day_name = 'Sat' THEN ' Sat'
-WHEN day_name = 'Sun' THEN 'Sun'
-ELSE day_name
+  WHEN race_position = 1 THEN '1st Place'
+  WHEN race_position = 2 THEN '2nd Place'
+  WHEN race_position = 3 THEN '3rd Place'
+  ELSE 'Off Podium'
 END
-```
+``
 
-## Weekday Labels Without Space Padding (Preferred Where Supported)
-
-If the visualization supports sort-by-column, use:
-- label: `day_name`
-- sort by: `day_of_week_number` ascending
-
-If you need one expression that carries sort intent into the label:
-
-```sql
-CONCAT(day_of_week_number::text, ' - ', day_name)
-```
-
-## Wind Direction Metrics (8-Sector Radar)
-
-Use these as custom metrics for charts where each metric represents one wind direction.
-
-```sql
-AVG(CASE WHEN wind_sector = 'N'  THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'NE' THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'E'  THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'SE' THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'S'  THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'SW' THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'W'  THEN ws10 ELSE NULL END)
-AVG(CASE WHEN wind_sector = 'NW' THEN ws10 ELSE NULL END)
-```
-
-Suggested metric names in Superset:
-- `ws10_avg_n`
-- `ws10_avg_ne`
-- `ws10_avg_e`
-- `ws10_avg_se`
-- `ws10_avg_s`
-- `ws10_avg_sw`
-- `ws10_avg_w`
-- `ws10_avg_nw`
-
-## Simple Data-Quality Filters
+## Simple Filters
 
 Use these as chart-level SQL filters when needed:
 
-Keep rows where wind speed is present:
+### Filter for Recent Seasons
+Keep rows from the year 2020 onwards:
+``sql
+race_year >= 2020
+``
 
-```sql
-ws10 IS NOT NULL
-```
-
-Keep rows with valid wind direction degree:
-
-```sql
-wd10 BETWEEN 0 AND 360
-```
-
-Keep rows where PM2.5 and PM10 are both present:
-
-```sql
-pm2_5 IS NOT NULL AND pm10 IS NOT NULL
-```
-
-## Humidity And Rainfall Filters (Station 19)
-
-Keep rows where humidity is present:
-
-```sql
-hum IS NOT NULL
-```
-
-Keep rows where rainfall/downfall is measured:
-
-```sql
-rain IS NOT NULL
-```
+### Filter for Winners Only
+Keep only rows where the driver won the race:
+``sql
+race_position = 1
+``
