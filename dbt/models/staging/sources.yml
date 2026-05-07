@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data
+    schema: raw
+    tables:
+      - name: race_results
+        description: "Raw Formula 1 race results extracted from FastF1 API"

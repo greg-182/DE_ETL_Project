@@ -29,4 +29,13 @@ with DAG(
         bash_command='/opt/airflow-venv/bin/python /opt/airflow/etl/extract_race_results.py',
     )
 
-    extract_task
+    # Task to run dbt transformations
+    # dbt is installed in a separate virtual environment, symlinked to /usr/local/bin/dbt
+    # We specify the project-dir and profiles-dir so dbt knows where to find our configs
+    dbt_run_task = BashOperator(
+        task_id='dbt_run',
+        bash_command='dbt run --project-dir /opt/airflow/dbt --profiles-dir /opt/airflow/dbt',
+    )
+
+    # Set task dependencies: extraction must succeed before dbt runs
+    extract_task >> dbt_run_task

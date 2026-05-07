@@ -1,0 +1,1 @@
+{"_invocation_id": "c90c6dd9-5c18-41cd-889c-45103b96dce8", "linked": {"0": {"name": "source.f1_etl_project.raw_data.race_results", "type": "source", "succ": [2]}, "1": {"name": "model.f1_etl_project.f1_race_results", "type": "model"}, "2": {"name": "model.f1_etl_project.stg_race_results", "type": "model", "succ": [1]}}}

@@ -1,0 +1,12 @@
+f1_warehouse:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      port: 5432
+      user: postgres
+      password: postgres
+      dbname: f1_warehouse
+      schema: mart
+      threads: 4
