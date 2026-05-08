@@ -25,37 +25,43 @@ We follow a modular approach. Each directory contains its own `README.md` with s
 ## Quick Start
 Run these commands inside the VS Code Dev Container terminal:
 
-1. **Start the Infrastructure:**
+1. **Initialize the Environment:**
+   ```bash
+   make init
+   ```
+   *Note: This creates a local Python virtual environment (`.venv`) and installs necessary dependencies for manual execution.*
+
+2. **Start the Infrastructure:**
    ```bash
    make up
    ```
    *Note: This builds the custom images and starts Postgres, Airflow, and Superset. Services run on alternate ports (Postgres on 5433, Airflow UI on 8081, Superset on 8089) to prevent conflicts.*
 
-2. **Access Airflow UI:**
+3. **Access Airflow UI:**
    - Open your browser to <http://localhost:8081>
    - **Username:** `admin`
    - **Password:** `admin`
    - You can unpause and trigger the `f1_race_extraction_dag` from here to extract data and run dbt models.
 
-3. **Access Superset UI:**
+4. **Access Superset UI:**
    - Open your browser to <http://localhost:8089>
    - **Username:** `admin`
    - **Password:** `admin`
 
-4. **Run Manual Extraction (Optional):**
+5. **Run Manual Extraction (Optional):**
    If you don't want to use Airflow, you can run the extraction script manually:
    ```bash
    make etl-extract
    ```
 
-5. **Verify the Data:**
+6. **Verify the Data:**
    Open an interactive SQL shell to query the raw or transformed data:
    ```bash
    make db-shell
    ```
    *Example Query:* `SELECT * FROM mart.f1_race_results LIMIT 5;`
 
-6. **Stop Everything:**
+7. **Stop Everything:**
    ```bash
    make down
    ```
