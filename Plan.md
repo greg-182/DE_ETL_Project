@@ -5,7 +5,7 @@ This document outlines the step-by-step implementation plan for the F1 Data Engi
 ## Postgres vs DuckDB: A Quick Primer
 *   **Postgres:** A traditional, robust, "always-on" database server. It handles concurrent connections very well and is the standard for transactional systems.
 *   **DuckDB:** A fast, serverless, in-process analytical database (like SQLite, but designed for OLAP/data analysis). It doesn't require a background server to run and is incredibly fast for reading large datasets.
-*   **Our Choice:** We will use **Postgres** (with potentially a DuckDB extension for analytics if we follow the teacher's image `pgduckdb/pgduckdb`), acting as our main Data Warehouse for structured storage and connection to Superset.
+*   **Our Choice:** We will use **Postgres** (with potentially a DuckDB extension for analytics consideration), acting as our main Data Warehouse for structured storage and connection to Superset.
 
 ---
 
@@ -15,9 +15,9 @@ This document outlines the step-by-step implementation plan for the F1 Data Engi
 *   [ ] Create a global `README.md` containing overall project structure, prerequisites, and startup instructions.
 
 ## Phase 2: Data Warehouse (Postgres)
-*   [x] Configure Postgres database in `docker-compose.yml`.
-*   [x] Create `postgres/` directory with initialization scripts for `raw` and `mart` schemas.
-*   [x] Write a `postgres/README.md` documenting the schema design and commands to connect to the database via terminal/DBeaver.
+*   [ ] Configure Postgres database in `docker-compose.yml`.
+*   [ ] Create `postgres/` directory with initialization scripts for `raw` and `mart` schemas.
+*   [ ] Write a `postgres/README.md` documenting the schema design and commands to connect to the database via terminal/DBeaver.
 
 ## Phase 3: Data Extraction (Python -> FastF1 API)
 *   [ ] Create an `etl/` directory for Python extraction scripts.

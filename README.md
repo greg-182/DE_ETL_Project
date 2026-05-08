@@ -60,3 +60,6 @@ Run these commands inside the VS Code Dev Container terminal:
    make down
    ```
    *(Or `make reset-volumes` to wipe the databases clean)*
+
+## Authors
+Georg Allikas, Jüri Andrejev, Viktor Lantov 

@@ -12,7 +12,7 @@ You can connect to this database using a database client like **DBeaver** or **D
 
 Use the following credentials (defined in the root `.env` file):
 * **Host**: `localhost` (or `127.0.0.1`)
-* **Port**: `5433` (We use 5433 to avoid conflicting with the teacher's default 5432 port)
+* **Port**: `5433` (We use 5433 to avoid conflicts with other local projects)
 * **Database**: `f1_warehouse`
 * **Username**: `postgres`
 * **Password**: `postgres`
