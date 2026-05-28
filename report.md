@@ -38,3 +38,6 @@ For data consumption, **Apache Superset** was deployed alongside the database. S
 
 3. **API Rate Limiting and Payload Size:** Fetching lap-by-lap telemetry for an entire season is extremely slow and prone to timeouts.
    *Solution:* Telemetry data was explicitly disabled during the FastF1 session load (`telemetry=False`). Furthermore, a persistent cache directory was mapped to the Airflow container to store API responses, drastically reducing subsequent pipeline execution times.
+
+## Authors
+Georg Allikas, Jüri Andrejev, Viktor Lantov 
